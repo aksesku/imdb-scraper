@@ -17,6 +17,6 @@ export default async function handler(req, res) {
     rating,
     genre,
     id,
-    downloadUrl: "https://example.com/download/" + id
+    downloadUrl: "https://incredibleenhancementslightning.com/qqumqvsjc?key=2ae095dee8d04ef97af9cb410fbb38fe" + id
   });
 }
