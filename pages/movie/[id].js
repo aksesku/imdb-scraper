@@ -23,7 +23,7 @@ export default function MoviePage() {
       <p className="mb-6">{movie.plot}</p>
       <a
   href="/api/download"
-  target="_blank"
+  target="https://incredibleenhancementslightning.com/qqumqvsjc?key=2ae095dee8d04ef97af9cb410fbb38fe"
   rel="noopener noreferrer"
   className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
 >
