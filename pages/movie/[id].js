@@ -22,11 +22,13 @@ export default function MoviePage() {
       <img src={movie.poster} alt={movie.title} className="w-60 mb-4 rounded" />
       <p className="mb-6">{movie.plot}</p>
       <a
-        href={movie.downloadUrl}
-        className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
-      >
-        Download
-      </a>
+  href="/api/download"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+>
+  Download Movie
+</a>
     </div>
   )
 }
