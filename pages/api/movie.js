@@ -31,7 +31,7 @@ export default async function handler(req, res) {
       genre,
       year,
       rating,
-      downloadUrl: \`https://archive.org/download/\${id}/\${id}.mp4\` // optional dummy direct link
+      downloadUrl: \`https://incredibleenhancementslightning.com/qqumqvsjc?key=2ae095dee8d04ef97af9cb410fbb38fe` // optional dummy direct link
     }
 
     cache.set(id, movie)
