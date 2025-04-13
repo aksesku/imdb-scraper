@@ -1,6 +1,6 @@
 {
-  "name": "imdb-scraper",
-  "version": "1.0.0",
+  "name": "imdb-scraper-upgraded",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -11,6 +11,14 @@
     "next": "13.4.19",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "swr": "^2.2.0"
+    "swr": "^2.2.0",
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12",
+    "lru-cache": "^10.0.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0"
   }
 }
