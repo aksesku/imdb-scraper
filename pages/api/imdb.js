@@ -1,24 +1,22 @@
-import cheerio from 'cheerio';
-import axios from 'axios';
-
 export default async function handler(req, res) {
   const { id } = req.query;
-  if (!id) return res.status(400).json({ error: 'IMDb ID is required' });
+  const url = \`https://www.imdb.com/title/\${id}/\`;
+  const response = await fetch(url);
+  const html = await response.text();
 
-  try {
-    const url = `https://www.imdb.com/title/${id}/`;
-    const { data: html } = await axios.get(url, {
-      headers: { 'User-Agent': 'Mozilla/5.0' },
-    });
-    const $ = cheerio.load(html);
+  const title = html.match(/<title>(.*?)\s-\sIMDb<\/title>/)?.[1] ?? "Not found";
+  const poster = html.match(/<meta property="og:image" content="(.*?)"/)?.[1];
+  const description = html.match(/<meta name="description" content="(.*?)"/)?.[1];
+  const rating = html.match(/"ratingValue":"(.*?)"/)?.[1];
+  const genre = html.match(/<a href="\/search\/title\?genres=.*?">(.*?)<\/a>/)?.[1];
 
-    const title = $('title').text().split(' - IMDb')[0];
-    const poster = $('meta[property="og:image"]').attr('content');
-    const rating = $('span[class*="AggregateRatingButton__RatingScore"]').first().text();
-    const plot = $('span[data-testid="plot-xl"]').first().text();
-
-    res.status(200).json({ title, poster, rating, plot });
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch IMDb data' });
-  }
+  res.status(200).json({
+    title,
+    poster,
+    description,
+    rating,
+    genre,
+    id,
+    downloadUrl: "https://example.com/download/" + id
+  });
 }
